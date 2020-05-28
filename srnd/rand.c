@@ -6,9 +6,10 @@ int get_random_number()
 {
     if (!initialized)
     {
-        srand(time(NULL));
+        time_t t = time(NULL);
+        srand(t);
         initialized = true;
-        printf("init rand seed\n");
+        printf("init rand seed: %ld\n", t);
     }
 
     int r = rand() % 1000000;
